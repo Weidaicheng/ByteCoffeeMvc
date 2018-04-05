@@ -53,31 +53,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cache\SimpleCacheHelper.cs" />
-    <Compile Include="Configs\AppVariables.cs" />
+    <Compile Include="Cache\HttpRuntimeCacheHelper.cs" />
+    <Compile Include="Reconstitution\Configs\AppVariables.cs" />
     <Compile Include="Data\AnyRadixConvert.cs" />
     <Compile Include="Data\CheckExistsType.cs" />
     <Compile Include="Data\CombHelper.cs" />
     <Compile Include="Data\Compression.cs" />
     <Compile Include="Data\DateTimeRange.cs" />
-    <Compile Include="Data\ITEResult.cs" />
-    <Compile Include="Data\JsonHelper.cs" />
-    <Compile Include="Data\MathExpression.cs" />
-    <Compile Include="Data\MathHelper.cs" />
-    <Compile Include="Data\old\ClientMessage.cs" />
-    <Compile Include="Data\old\Node.cs" />
-    <Compile Include="Data\old\SMSTemplate.cs" />
-    <Compile Include="Data\old\UserBrowserConfig.cs" />
-    <Compile Include="Data\OperationResult.cs" />
-    <Compile Include="Data\OperationResultType.cs" />
-    <Compile Include="Data\OSharpResult.cs" />
-    <Compile Include="Data\PageCondition.cs" />
+    <Compile Include="Data\BaseResult\IBaseResult.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Data\Math\MathExpression.cs" />
+    <Compile Include="Data\Math\MathHelper.cs" />
+    <Compile Include="Data\TreeNode\Node.cs" />
+    <Compile Include="Data\OpResult\OpResult.cs" />
+    <Compile Include="Data\OpResult\OpResultType.cs" />
+    <Compile Include="Data\BaseResult\BaseResult.cs" />
+    <Compile Include="Data\PageCondition\PageCondition.cs" />
     <Compile Include="Data\RegexPatterns.cs" />
-    <Compile Include="Data\SerializeHelper.cs" />
-    <Compile Include="Data\Singleton.cs" />
-    <Compile Include="Data\SingletonDictionary.cs" />
-    <Compile Include="Data\SingletonList.cs" />
-    <Compile Include="Data\SortCondition.cs" />
+    <Compile Include="Helpers\BinaryHelper.cs" />
+    <Compile Include="Data\Singleton\Singleton.cs" />
+    <Compile Include="Data\Singleton\SingletonDictionary.cs" />
+    <Compile Include="Data\Singleton\SingletonList.cs" />
+    <Compile Include="Data\PageCondition\SortCondition.cs" />
     <Compile Include="Drawing\ValidateCoder.cs" />
     <Compile Include="Drawing\ValidateCodeType.cs" />
     <Compile Include="Exceptions\ExceptionMessage.cs" />
@@ -148,5 +145,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

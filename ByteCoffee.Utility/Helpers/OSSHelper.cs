@@ -76,7 +76,7 @@ namespace ByteCoffee.Utility.Helpers
         /// <param name="file">上传文件</param>
         /// <param name="etag">资源关联的记号</param>
         /// <returns></returns>
-        public static OperationResult PutObject(string bucketName, string key, HttpPostedFileBase file, out string etag)
+        public static OpResult PutObject(string bucketName, string key, HttpPostedFileBase file, out string etag)
         {
             etag = string.Empty;
             try
@@ -86,15 +86,15 @@ namespace ByteCoffee.Utility.Helpers
                 //var accs = OssClient.GetBucketAcl(bucketName);
                 //var fileUrl = !accs.Grants.Any() ? OssClient.GeneratePresignedUri(bucketName, key, DateTime.Now.AddMinutes(5)).AbsoluteUri : string.Format("http://{0}.oss-cn-hzjbp-a-internal.aliyuncs.com/{1}", bucketName, key);
                 var fileUrl = string.Format("http://{0}.oss-cn-hangzhou.aliyuncs.com/{1}", bucketName, key);
-                return new OperationResult(OperationResultType.Success, string.Empty, fileUrl);
+                return new OpResult(OpResultType.Success, string.Empty, fileUrl);
             }
             catch (OssException ex)
-            { return new OperationResult(OperationResultType.Error, string.Format("Failed with error code: {0}; Error info: {1}. \nRequestID:{2}\tHostID:{3}", ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId)); }
+            { return new OpResult(OpResultType.Error, string.Format("Failed with error code: {0}; Error info: {1}. \nRequestID:{2}\tHostID:{3}", ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId)); }
             catch (Exception ex)
-            { return new OperationResult(OperationResultType.Error, string.Format("Failed with error info: {0}", ex.Message)); }
+            { return new OpResult(OpResultType.Error, string.Format("Failed with error info: {0}", ex.Message)); }
         }
 
-        public static OperationResult PutObject(string bucketName, string key, HttpPostedFileBase file)
+        public static OpResult PutObject(string bucketName, string key, HttpPostedFileBase file)
         {
             try
             {
@@ -103,15 +103,15 @@ namespace ByteCoffee.Utility.Helpers
                 //var accs = OssClient.GetBucketAcl(bucketName);
                 //var fileUrl = !accs.Grants.Any() ? OssClient.GeneratePresignedUri(bucketName, key, DateTime.Now.AddMinutes(5)).AbsoluteUri : string.Format("http://{0}.oss-cn-hzjbp-a-internal.aliyuncs.com/{1}", bucketName, key);
                 var fileUrl = string.Format("http://{0}.oss-cn-hangzhou.aliyuncs.com/{1}", bucketName, key);
-                return new OperationResult(OperationResultType.Success, string.Empty, fileUrl);
+                return new OpResult(OpResultType.Success, string.Empty, fileUrl);
             }
             catch (OssException ex)
-            { return new OperationResult(OperationResultType.Error, string.Format("Failed with error code: {0}; Error info: {1}. \nRequestID:{2}\tHostID:{3}", ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId)); }
+            { return new OpResult(OpResultType.Error, string.Format("Failed with error code: {0}; Error info: {1}. \nRequestID:{2}\tHostID:{3}", ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId)); }
             catch (Exception ex)
-            { return new OperationResult(OperationResultType.Error, string.Format("Failed with error info: {0}", ex.Message)); }
+            { return new OpResult(OpResultType.Error, string.Format("Failed with error info: {0}", ex.Message)); }
         }
 
-        public static OperationResult PutObject(string bucketName, string key, string filePath)
+        public static OpResult PutObject(string bucketName, string key, string filePath)
         {
             try
             {
@@ -119,12 +119,12 @@ namespace ByteCoffee.Utility.Helpers
                 //var accs = OssClient.GetBucketAcl(bucketName);
                 //var fileUrl = !accs.Grants.Any() ? OssClient.GeneratePresignedUri(bucketName, key, DateTime.Now.AddMinutes(5)).AbsoluteUri : string.Format("http://{0}.oss-cn-hzjbp-a-internal.aliyuncs.com/{1}", bucketName, key);
                 var fileUrl = string.Format("http://{0}.oss-cn-hangzhou.aliyuncs.com/{1}", bucketName, key);
-                return new OperationResult(OperationResultType.Success, string.Empty, fileUrl);
+                return new OpResult(OpResultType.Success, string.Empty, fileUrl);
             }
             catch (OssException ex)
-            { return new OperationResult(OperationResultType.Error, string.Format("Failed with error code: {0}; Error info: {1}. \nRequestID:{2}\tHostID:{3}", ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId)); }
+            { return new OpResult(OpResultType.Error, string.Format("Failed with error code: {0}; Error info: {1}. \nRequestID:{2}\tHostID:{3}", ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId)); }
             catch (Exception ex)
-            { return new OperationResult(OperationResultType.Error, string.Format("Failed with error info: {0}", ex.Message)); }
+            { return new OpResult(OpResultType.Error, string.Format("Failed with error info: {0}", ex.Message)); }
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace ByteCoffee.Utility.Helpers
         /// <param name="fileToDownload">下载路径及文件</param>
         /// <param name="mime">mime类型值</param>
         /// <returns></returns>
-        public static OperationResult GetObject(String bucketName, string key, string fileToDownload, out string mime)
+        public static OpResult GetObject(String bucketName, string key, string fileToDownload, out string mime)
         {
             var o = OssClient.GetObject(bucketName, key);
             mime = o.Metadata.ContentType;
@@ -148,7 +148,7 @@ namespace ByteCoffee.Utility.Helpers
                 while ((len = requestStream.Read(buf, 0, 1024)) != 0)
                 { fs.Write(buf, 0, len); }
                 fs.Close();
-                return new OperationResult(OperationResultType.Success);
+                return new OpResult(OpResultType.Success);
             }
         }
 

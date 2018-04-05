@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteCoffee.Utility.Data;
+using System;
 
 namespace ByteCoffee.Utility.Data
 {

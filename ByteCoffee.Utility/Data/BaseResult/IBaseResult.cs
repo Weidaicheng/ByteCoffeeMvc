@@ -1,16 +1,9 @@
 ﻿namespace ByteCoffee.Utility.Data
 {
     /// <summary>
-    /// OSharp操作结果
+    /// 操作结果
     /// </summary>
-    /// <typeparam name="TResultType"></typeparam>
-    public interface ITEResult<TResultType> : ITEResult<TResultType, object>
-    { }
-
-    /// <summary>
-    /// OSharp操作结果
-    /// </summary>
-    public interface ITEResult<TResultType, TData>
+    public interface IBaseResult<TResultType, TData>
     {
         /// <summary>
         /// 获取或设置 结果类型

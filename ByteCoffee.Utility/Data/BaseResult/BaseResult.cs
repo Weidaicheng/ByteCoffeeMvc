@@ -1,74 +1,77 @@
 ﻿namespace ByteCoffee.Utility.Data
 {
     /// <summary>
-    /// OSharp结果基类
+    /// 结果基类
     /// </summary>
     /// <typeparam name="TResultType"></typeparam>
-    public abstract class OSharpResult<TResultType> : OSharpResult<TResultType, object>, ITEResult<TResultType>
+    public abstract class BaseResult<TResultType> : BaseResult<TResultType, object>
     {
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType}"/>类型的新实例
         /// </summary>
-        protected OSharpResult()
+        protected BaseResult()
             : this(default(TResultType))
         { }
 
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType}"/>类型的新实例
         /// </summary>
-        protected OSharpResult(TResultType type)
+        protected BaseResult(TResultType type)
             : this(type, null, null)
         { }
 
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType}"/>类型的新实例
         /// </summary>
-        protected OSharpResult(TResultType type, string message)
+        protected BaseResult(TResultType type, string message)
             : this(type, message, null)
         { }
 
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType}"/>类型的新实例
         /// </summary>
-        protected OSharpResult(TResultType type, string message, object data)
-            : base(type, message, data)
-        { }
+        protected BaseResult(TResultType type, string message, object data)
+        {
+            ResultType = type;
+            Message = message;
+            Data = data;
+        }
     }
 
     /// <summary>
-    /// OSharp结果基类
+    /// 结果基类
     /// </summary>
     /// <typeparam name="TResultType">结果类型</typeparam>
     /// <typeparam name="TData">结果数据类型</typeparam>
-    public abstract class OSharpResult<TResultType, TData> : ITEResult<TResultType, TData>
+    public abstract class BaseResult<TResultType, TData> : IBaseResult<TResultType, TData>
     {
         protected string _message;
 
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType,TData}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType,TData}"/>类型的新实例
         /// </summary>
-        protected OSharpResult()
+        protected BaseResult()
             : this(default(TResultType))
         { }
 
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType,TData}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType,TData}"/>类型的新实例
         /// </summary>
-        protected OSharpResult(TResultType type)
+        protected BaseResult(TResultType type)
             : this(type, null, default(TData))
         { }
 
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType,TData}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType,TData}"/>类型的新实例
         /// </summary>
-        protected OSharpResult(TResultType type, string message)
+        protected BaseResult(TResultType type, string message)
             : this(type, message, default(TData))
         { }
 
         /// <summary>
-        /// 初始化一个<see cref="OSharpResult{TResultType,TData}"/>类型的新实例
+        /// 初始化一个<see cref="BaseResult{TResultType,TData}"/>类型的新实例
         /// </summary>
-        protected OSharpResult(TResultType type, string message, TData data)
+        protected BaseResult(TResultType type, string message, TData data)
         {
             ResultType = type;
             _message = message;

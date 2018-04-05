@@ -13,7 +13,7 @@ namespace ByteCoffee.Utility.Data
     /// <summary>
     /// 表示业务操作结果的枚举
     /// </summary>
-    public enum OperationResultType
+    public enum OpResultType
     {
         /// <summary>
         ///   输入信息验证失败

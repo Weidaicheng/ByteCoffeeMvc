@@ -3,12 +3,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace ByteCoffee.Utility.Data
+namespace ByteCoffee.Utility.Helpers
 {
     /// <summary>
     /// 序列化辅助操作类
     /// </summary>
-    public static class SerializeHelper
+    public static class BinaryHelper
     {
         #region 二进制序列化
 
@@ -68,65 +68,5 @@ namespace ByteCoffee.Utility.Data
         }
 
         #endregion 二进制序列化
-
-        #region XML序列化
-
-        /// <summary>
-        /// 将数据序列化为XML形式
-        /// </summary>
-        public static string ToXml(object data)
-        {
-            data.CheckNotNull("data");
-            using (MemoryStream ms = new MemoryStream())
-            {
-                XmlSerializer serializer = new XmlSerializer(data.GetType());
-                serializer.Serialize(ms, data);
-                ms.Seek(0, 0);
-                return Encoding.Default.GetString(ms.ToArray());
-            }
-        }
-
-        /// <summary>
-        /// 将XML数据反序列化为强类型
-        /// </summary>
-        public static T FromXml<T>(string xml)
-        {
-            xml.CheckNotNull("xml");
-            byte[] bytes = Encoding.Default.GetBytes(xml);
-            using (MemoryStream ms = new MemoryStream())
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                return (T)serializer.Deserialize(ms);
-            }
-        }
-
-        /// <summary>
-        /// 将数据序列化为XML并写入文件
-        /// </summary>
-        public static void ToXmlFile(object data, string fileName)
-        {
-            data.CheckNotNull("data");
-            fileName.CheckNotNullOrEmpty("fileName");
-            using (FileStream fs = new FileStream(fileName, FileMode.Create))
-            {
-                XmlSerializer serializer = new XmlSerializer(data.GetType());
-                serializer.Serialize(fs, data);
-            }
-        }
-
-        /// <summary>
-        /// 将指定XML数据文件还原为强类型数据
-        /// </summary>
-        public static T FromXmlFile<T>(string fileName)
-        {
-            fileName.CheckFileExists("fileName");
-            using (FileStream fs = new FileStream(fileName, FileMode.Open))
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                return (T)serializer.Deserialize(fs);
-            }
-        }
-
-        #endregion XML序列化
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace ByteCoffee.Utility.Data
+namespace ByteCoffee.Utility.Helpers
 {
     /// <summary>
     /// JSON辅助操作类
@@ -27,17 +27,17 @@ namespace ByteCoffee.Utility.Data
             return json;
         }
 
-        ///// <summary>
-        ///// 把对象序列化成Json字符串格式
-        ///// </summary>
-        ///// <param name="object">Json 对象</param>
-        ///// <returns>Json 字符串</returns>
-        //public static string ToJson(object @object)
-        //{
-        //    @object.CheckNotNull("@object");
-        //    string json = JsonConvert.SerializeObject(@object);
-        //    return JsonDateTimeFormat(json);
-        //}
+        /// <summary>
+        /// 把对象序列化成Json字符串格式
+        /// </summary>
+        /// <param name="object">Json 对象</param>
+        /// <returns>Json 字符串</returns>
+        public static string ToJson(object @object)
+        {
+            @object.CheckNotNull("@object");
+            string json = JsonConvert.SerializeObject(@object);
+            return JsonDateTimeFormat(json);
+        }
 
         /// <summary>
         /// 把Json字符串转换为强类型对象

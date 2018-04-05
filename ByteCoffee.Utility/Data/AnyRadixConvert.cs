@@ -14,11 +14,11 @@ namespace ByteCoffee.Utility.Data
         private const string BaseChar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
         /// <summary>
-        /// 将指定基数的数字的字符串表示形式转换为等效的64位有符号整数
+        /// 将指定基数的数字的字符串表示形式转换为等效的64位无符号整数
         /// </summary>
         /// <param name="value">指定基数的数字的字符串表示</param>
         /// <param name="fromRadix">字符串的基数，必须为[2,62]范围内</param>
-        /// <returns>等效于value的数值的64位有符号整数</returns>
+        /// <returns>等效于value的数值的64位无符号整数</returns>
         public static ulong X2H(string value, int fromRadix)
         {
             value.CheckNotNullOrEmpty("value");
@@ -40,9 +40,9 @@ namespace ByteCoffee.Utility.Data
         }
 
         /// <summary>
-        /// 将64位有符号整数形式的数值转换为指定基数的数值的字符串形式
+        /// 将64位无符号整数形式的数值转换为指定基数的数值的字符串形式
         /// </summary>
-        /// <param name="value">64位有符号整数形式的数值</param>
+        /// <param name="value">64位无符号整数形式的数值</param>
         /// <param name="toRadix">要转换的目标基数，必须为[2,62]范围内</param>
         /// <returns>指定基数的数值的字符串形式</returns>
         public static string H2X(ulong value, int toRadix)
@@ -85,7 +85,7 @@ namespace ByteCoffee.Utility.Data
         /// </summary>
         /// <param name="value">10进制数</param>
         /// <returns>16进制数的字符串</returns>
-        public static string _10To16(int value)
+        public static string From10To16(int value)
         {
             value.CheckGreaterThan("value", 0, true);
             string str = X2X(value.ToString(CultureInfo.InvariantCulture), 10, 16);
@@ -95,7 +95,7 @@ namespace ByteCoffee.Utility.Data
         /// <summary>
         /// 16进制字符串转换为10进制数字
         /// </summary>
-        public static int _16To10(string value)
+        public static int From16To10(string value)
         {
             value = value.ToUpper();
             return X2X(value, 16, 10).CastTo<int>();
