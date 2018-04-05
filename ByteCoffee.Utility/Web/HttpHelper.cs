@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 
-namespace ByteCoffee.Utility.Helpers
+namespace ByteCoffee.Utility.Web
 {
     public class HttpHelper
     {

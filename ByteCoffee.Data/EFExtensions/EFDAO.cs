@@ -172,7 +172,7 @@ namespace ByteCoffee.Data
                 {
                     SqlException sqlEx = e.InnerException.InnerException as SqlException;
                     string msg = DataHelper.GetSqlExceptionMessage(sqlEx.Number);
-                    throw new TEException("提交数据更新时发生异常：" + msg, sqlEx);
+                    throw new BaseException("提交数据更新时发生异常：" + msg, sqlEx);
                 }
                 throw;
             }

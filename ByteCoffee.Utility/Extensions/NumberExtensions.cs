@@ -21,7 +21,7 @@ namespace ByteCoffee.Utility.Extensions
         }
 
         /// <summary>
-        /// 数字使用成汉语表示(只考虑整百,整千,整万)
+        /// 数字使用成汉语表示(仅处理整百,整千,整万)
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>

@@ -62,6 +62,26 @@ namespace ByteCoffee.Utility.Extensions
         }
 
         /// <summary>
+        /// 按指定宽度高度和位置裁剪图像
+        /// </summary>
+        /// <param name="bmp"></param>
+        /// <param name="width">裁切宽度</param>
+        /// <param name="height">裁切高度</param>
+        /// <param name="x">裁切位置横坐标</param>
+        /// <param name="y">裁切位置纵坐标</param>
+        /// <returns></returns>
+        public static Bitmap Clip(this Bitmap bmp, int width, int height, int x, int y, InterpolationMode model = InterpolationMode.Default)
+        {
+            Bitmap newBmp = new Bitmap(width, height);
+            using (Graphics graphics = Graphics.FromImage(newBmp))
+            {
+                graphics.InterpolationMode = model;
+                graphics.DrawImage(bmp, new Rectangle(0, 0, width, height), new Rectangle(x, y, width, height), GraphicsUnit.Pixel);
+                return newBmp;
+            }
+        }
+
+        /// <summary>
         /// 按指定宽度与高度缩放图像
         /// </summary>
         /// <param name="bmp"> 待处理的图像 </param>
@@ -458,7 +478,7 @@ namespace ByteCoffee.Utility.Extensions
         /// <param name="bmp"> </param>
         /// <param name="threshold"> </param>
         /// <returns> </returns>
-        public static Bitmap Binaryzation1(this Bitmap bmp, byte threshold)
+        public static Bitmap Binaryzation(this Bitmap bmp, byte threshold)
         {
             int widht = bmp.Width;
             int height = bmp.Height;
@@ -597,6 +617,15 @@ namespace ByteCoffee.Utility.Extensions
             }
         }
 
+        /// <summary>
+        /// 获取均匀的颜色
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="w"></param>
+        /// <param name="h"></param>
+        /// <returns></returns>
         private static byte GetAverageColor(byte[,] source, int x, int y, int w, int h)
         {
             int result = source[x, y]

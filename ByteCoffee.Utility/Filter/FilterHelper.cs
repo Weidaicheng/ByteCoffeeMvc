@@ -186,7 +186,7 @@ namespace ByteCoffee.Utility.Filter
             {
                 return bodys.Aggregate(Expression.OrElse);
             }
-            throw new TEException(Resources.Filter_GroupOperateError);
+            throw new BaseException(Resources.Filter_GroupOperateError);
         }
 
         private static Expression GetExpressionBody(ParameterExpression param, FilterRule rule)

@@ -57,7 +57,7 @@
     <Compile Include="Reconstitution\Configs\AppVariables.cs" />
     <Compile Include="Data\AnyRadixConvert.cs" />
     <Compile Include="Data\CheckExistsType.cs" />
-    <Compile Include="Data\CombHelper.cs" />
+    <Compile Include="Helpers\CombHelper.cs" />
     <Compile Include="Data\Compression.cs" />
     <Compile Include="Data\DateTimeRange.cs" />
     <Compile Include="Data\BaseResult\IBaseResult.cs" />
@@ -78,11 +78,10 @@
     <Compile Include="Drawing\ValidateCoder.cs" />
     <Compile Include="Drawing\ValidateCodeType.cs" />
     <Compile Include="Exceptions\ExceptionMessage.cs" />
-    <Compile Include="Exceptions\TEException.cs" />
+    <Compile Include="Exceptions\BaseException.cs" />
     <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\BitmapExtensions.cs" />
     <Compile Include="Extensions\BooleanExtensions.cs" />
-    <Compile Include="Extensions\BootstrapTableExtensions.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
@@ -90,7 +89,6 @@
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
-    <Compile Include="Extensions\KendoUIExtensions.cs" />
     <Compile Include="Extensions\LinqToXmlExtensions.cs" />
     <Compile Include="Extensions\MemoryCacheExtensions.cs" />
     <Compile Include="Extensions\NumberExtensions.cs" />
@@ -110,12 +108,12 @@
     <Compile Include="Filter\FilterOperate.cs" />
     <Compile Include="Filter\FilterRule.cs" />
     <Compile Include="Filter\OperateCodeAttribute.cs" />
-    <Compile Include="Helpers\CookieHelper.cs" />
-    <Compile Include="Helpers\HttpHelper.cs" />
+    <Compile Include="Web\CookieHelper.cs" />
+    <Compile Include="Web\HttpHelper.cs" />
     <Compile Include="Helpers\OSSHelper.cs" />
     <Compile Include="Helpers\SpellHelper.cs" />
     <Compile Include="Helpers\SqlHelper.cs" />
-    <Compile Include="Helpers\ThumbnailHelper.cs" />
+    <Compile Include="Drawing\ThumbnailHelper.cs" />
     <Compile Include="Helpers\TxtFileHelper.cs" />
     <Compile Include="Helpers\UploadFileHelper.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
