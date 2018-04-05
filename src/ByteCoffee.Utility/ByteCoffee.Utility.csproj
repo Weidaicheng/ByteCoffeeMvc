@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE9B8723-BCCD-4FF5-83F8-874C61D99E2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ByteCoffee.Utility</RootNamespace>
+    <AssemblyName>ByteCoffee.Utility</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aliyun.OSS, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aliyun.OSS.SDK.2.8.0\lib\Aliyun.OSS.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\SimpleCacheHelper.cs" />
+    <Compile Include="Configs\AppVariables.cs" />
+    <Compile Include="Data\AnyRadixConvert.cs" />
+    <Compile Include="Data\CheckExistsType.cs" />
+    <Compile Include="Data\CombHelper.cs" />
+    <Compile Include="Data\Compression.cs" />
+    <Compile Include="Data\DateTimeRange.cs" />
+    <Compile Include="Data\ITEResult.cs" />
+    <Compile Include="Data\JsonHelper.cs" />
+    <Compile Include="Data\MathExpression.cs" />
+    <Compile Include="Data\MathHelper.cs" />
+    <Compile Include="Data\old\ClientMessage.cs" />
+    <Compile Include="Data\old\Node.cs" />
+    <Compile Include="Data\old\SMSTemplate.cs" />
+    <Compile Include="Data\old\UserBrowserConfig.cs" />
+    <Compile Include="Data\OperationResult.cs" />
+    <Compile Include="Data\OperationResultType.cs" />
+    <Compile Include="Data\OSharpResult.cs" />
+    <Compile Include="Data\PageCondition.cs" />
+    <Compile Include="Data\RegexPatterns.cs" />
+    <Compile Include="Data\SerializeHelper.cs" />
+    <Compile Include="Data\Singleton.cs" />
+    <Compile Include="Data\SingletonDictionary.cs" />
+    <Compile Include="Data\SingletonList.cs" />
+    <Compile Include="Data\SortCondition.cs" />
+    <Compile Include="Drawing\ValidateCoder.cs" />
+    <Compile Include="Drawing\ValidateCodeType.cs" />
+    <Compile Include="Exceptions\ExceptionMessage.cs" />
+    <Compile Include="Exceptions\TEException.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Extensions\BitmapExtensions.cs" />
+    <Compile Include="Extensions\BooleanExtensions.cs" />
+    <Compile Include="Extensions\BootstrapTableExtensions.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
+    <Compile Include="Extensions\KendoUIExtensions.cs" />
+    <Compile Include="Extensions\LinqToXmlExtensions.cs" />
+    <Compile Include="Extensions\MemoryCacheExtensions.cs" />
+    <Compile Include="Extensions\NumberExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\PagingExtensions.cs" />
+    <Compile Include="Extensions\ParamterCheckExtensions.cs" />
+    <Compile Include="Extensions\RandomExtensions.cs" />
+    <Compile Include="Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\ThreadExtensions.cs" />
+    <Compile Include="Extensions\TryCatchExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Filter\CollectionPropertySorter.cs" />
+    <Compile Include="Filter\DataPage.cs" />
+    <Compile Include="Filter\FilterGroup.cs" />
+    <Compile Include="Filter\FilterHelper.cs" />
+    <Compile Include="Filter\FilterOperate.cs" />
+    <Compile Include="Filter\FilterRule.cs" />
+    <Compile Include="Filter\OperateCodeAttribute.cs" />
+    <Compile Include="Helpers\CookieHelper.cs" />
+    <Compile Include="Helpers\HttpHelper.cs" />
+    <Compile Include="Helpers\OSSHelper.cs" />
+    <Compile Include="Helpers\SpellHelper.cs" />
+    <Compile Include="Helpers\SqlHelper.cs" />
+    <Compile Include="Helpers\ThumbnailHelper.cs" />
+    <Compile Include="Helpers\TxtFileHelper.cs" />
+    <Compile Include="Helpers\UploadFileHelper.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
+    <Compile Include="IO\DirectoryHelper.cs" />
+    <Compile Include="IO\FileHelper.cs" />
+    <Compile Include="IO\WebFileHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Secutiry\AesHelper.cs" />
+    <Compile Include="Secutiry\AuthHelper.cs" />
+    <Compile Include="Secutiry\CommunicationCryptor.cs" />
+    <Compile Include="Secutiry\DesHelper.cs" />
+    <Compile Include="Secutiry\HashHelper.cs" />
+    <Compile Include="Secutiry\RsaHelper.cs" />
+    <Compile Include="Web\UserAgentHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
