@@ -7,32 +7,45 @@ using System.Web.Security;
 
 namespace ByteCoffee.FormsAuth
 {
-    public enum UserIdentityType : int
+    public enum UserTypeEnum : int
     {
-        Anonymous = 0,
-        SysAdmin = 1,
-        Normal = 2,
-        Member = 3
+        Admin = 10,
+        Officer = 20,
+        Customer = 30
     }
 
-    public enum ClientPlatform : int
+    public enum ClientTypeEnum : int
     {
-        Browser = 10,
-        WeiXinBrowser = 20
+        PcWeb = 10,
+        WxWeb = 20
     }
 
-    public class LoginUser : IPrincipal
+    public class ByteCoffeePrincipal : IPrincipal, IByteCoffeeUser
     {
-        public string UserIdentity;
-        public string UserName;
-        public string StoreId;
-        public ClientPlatform ClientType;
-        public UserIdentityType UserIdType;
+        #region IByteCoffeeUser
+
+        public string UserId { get; set; }
+
+        public string UserName { get; set; }
+
+        public UserTypeEnum UserType { get; set; }
+
+        #endregion
+
+        #region custom
+
+        public string GroupId { get; set; }
+
+        public ClientTypeEnum ClientType { get; set; }
+
+        #endregion
 
         public bool IsInRole(string role)
         {
             var roles = role.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            bool result = (from s in roles where string.Compare(s, UserIdType.ToString(), true) == 0 select s).Any();
+            bool result = (from s in roles
+                           where string.Compare(s, UserType.ToString(), true) == 0
+                           select s).Any();
             return result;
         }
 
@@ -193,34 +206,6 @@ namespace ByteCoffee.FormsAuth
             { throw new ArgumentNullException("expiration"); }
 
             SetAuthCookie(loginName, userData, TimeSpan.FromMinutes(expiration));
-
-            //if (string.IsNullOrEmpty(loginName))
-            //{ throw new ArgumentNullException("loginName"); }
-
-            //if (userData == null)
-            //{ throw new ArgumentNullException("userData"); }
-
-            //HttpContext context = HttpContext.Current;
-            //if (context == null)
-            //{ throw new InvalidOperationException(); }
-
-            //string data = null;
-            //if (userData != null)
-            //{ data = (new JavaScriptSerializer()).Serialize(userData); }
-
-            //FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(2, loginName, DateTime.Now, DateTime.Now.AddMinutes(expiration), true, data);
-            //string cookieValue = FormsAuthentication.Encrypt(ticket);
-
-            //HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, cookieValue);
-            //cookie.HttpOnly = true;
-            //cookie.Secure = FormsAuthentication.RequireSSL;
-            //cookie.Domain = FormsAuthentication.CookieDomain;
-            //cookie.Path = FormsAuthentication.FormsCookiePath;
-            //if (expiration > 0)
-            //{ cookie.Expires = DateTime.Now.AddMinutes(expiration); }
-
-            //context.Response.Cookies.Remove(cookie.Name);
-            //context.Response.Cookies.Add(cookie);
         }
 
         /// <summary>
@@ -292,5 +277,14 @@ namespace ByteCoffee.FormsAuth
         {
             FormsAuthentication.SignOut();
         }
+    }
+
+    public interface IByteCoffeeUser
+    {
+        string UserId { get; set; }
+
+        string UserName { get; set; }
+
+        UserTypeEnum UserType { get; set; }
     }
 }
