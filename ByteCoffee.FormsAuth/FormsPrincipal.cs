@@ -11,8 +11,8 @@ namespace ByteCoffee.FormsAuth
     public enum UserTypeEnum : int
     {
         Admin = 10,
-        Officer = 20,
-        Customer = 30
+        Manager = 20,
+        Member = 30
     }
 
     public enum ClientTypeEnum : int
@@ -30,7 +30,7 @@ namespace ByteCoffee.FormsAuth
         {
             get
             {
-                return string.Format("{0},{1},{2}", UserTypeEnum.Admin.ToString(), UserTypeEnum.Officer.ToString(), UserTypeEnum.Customer.ToString());
+                return string.Format("{0},{1},{2}", UserTypeEnum.Admin.ToString(), UserTypeEnum.Manager.ToString(), UserTypeEnum.Member.ToString());
             }
         }
 
