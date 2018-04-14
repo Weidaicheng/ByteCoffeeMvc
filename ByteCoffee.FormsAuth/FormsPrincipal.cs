@@ -20,6 +20,36 @@ namespace ByteCoffee.FormsAuth
         WxWeb = 20
     }
 
+    public struct RoleGroups
+    {
+        /// <summary>
+        /// 管理平台允许的角色(用户类型)
+        /// </summary>
+        public string OnlyAdmin { get { return UserTypeEnum.Admin.ToString(); } }
+
+        /// <summary>
+        /// 用户平台允许的角色(用户类型)
+        /// </summary>
+        public string OnlyMember
+        {
+            get
+            {
+                return string.Format("{0},{1}", UserTypeEnum.Officer.ToString(), UserTypeEnum.Customer.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 所有用户都允许
+        /// </summary>
+        public string AllowedAll
+        {
+            get
+            {
+                return string.Format("{0},{1},{2}", UserTypeEnum.Admin.ToString(), UserTypeEnum.Officer.ToString(), UserTypeEnum.Customer.ToString());
+            }
+        }
+    }
+
     public class ByteCoffeePrincipal : IPrincipal, IByteCoffeeUser
     {
         #region IByteCoffeeUser

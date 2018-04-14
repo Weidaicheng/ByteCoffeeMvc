@@ -14,29 +14,10 @@ namespace ByteCoffee.Utility.Configs
     {
         #region 系统参数
 
-        #region 身份访问限制的变量
-
-        /// <summary>
-        /// 管理平台允许的角色(用户类型)(必须为const常量)
-        /// </summary>
-        public const string OnlyManager = "SysAdmin,Normal";
-
-        /// <summary>
-        /// 用户平台允许的角色(用户类型)(必须为const常量)
-        /// </summary>
-        public const string OnlyMember = "Member";
-
-        /// <summary>
-        /// 所有用户都允许(必须为const常量)
-        /// </summary>
-        public const string AllowedALL = "SysAdmin,Normal,Member";
-
         /// <summary>
         /// 管理员区域的url匹配
         /// </summary>
         public const string LoginAdminRegexStr = @"^.{0,}admin.{0,}$";//todo 需要移除的配置,需要修改业务逻辑代码
-
-        #endregion 身份访问限制的变量
 
         #region 验证码变量名
 
