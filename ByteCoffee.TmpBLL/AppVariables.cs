@@ -1,4 +1,5 @@
-﻿using ByteCoffee.Utility.Helpers;
+﻿
+using ByteCoffee.Utility.Helpers;
 using ByteCoffee.Utility.IO;
 using System;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace ByteCoffee.Utility.Configs
+namespace ByteCoffee.TmpBLL
 {
     public static class AppVar
     {

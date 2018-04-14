@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "核心业务", "核心业�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteCoffee.FromAuthProvider", "ByteCoffee.FromAuthProvider\ByteCoffee.FromAuthProvider.csproj", "{ABDE5A95-013B-4C97-B782-60686617CCB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteCoffee.TmpBLL", "ByteCoffee.TmpBLL\ByteCoffee.TmpBLL.csproj", "{85C755D8-935E-4BBD-AC8C-669560E88583}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{ABDE5A95-013B-4C97-B782-60686617CCB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABDE5A95-013B-4C97-B782-60686617CCB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABDE5A95-013B-4C97-B782-60686617CCB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C755D8-935E-4BBD-AC8C-669560E88583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C755D8-935E-4BBD-AC8C-669560E88583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C755D8-935E-4BBD-AC8C-669560E88583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C755D8-935E-4BBD-AC8C-669560E88583}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{B9CEF979-A6DD-47F0-A8CF-3076AC10613C} = {798B1A97-2100-4934-924B-92907B3329D2}
 		{26545D13-6C98-4B03-96D5-F9EBE9172950} = {F83B046C-D344-4F76-9DA5-D8B751B6BF84}
 		{ABDE5A95-013B-4C97-B782-60686617CCB0} = {F83B046C-D344-4F76-9DA5-D8B751B6BF84}
+		{85C755D8-935E-4BBD-AC8C-669560E88583} = {83F70C69-DF9A-496D-A59C-B849F5C98707}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {494AA7FE-5389-4AF6-A61F-8D5E50683E52}

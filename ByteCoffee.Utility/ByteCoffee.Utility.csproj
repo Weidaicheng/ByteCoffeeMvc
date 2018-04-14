@@ -54,7 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache\HttpRuntimeCacheHelper.cs" />
-    <Compile Include="Reconstitution\Configs\AppVariables.cs" />
     <Compile Include="Data\AnyRadixConvert.cs" />
     <Compile Include="Data\CheckExistsType.cs" />
     <Compile Include="Helpers\CombHelper.cs" />
