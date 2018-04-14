@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace ByteCoffee.Utility.Helpers
+namespace ByteCoffee.Utility.Web
 {
     #region 文件上传的状态
 
@@ -43,31 +43,7 @@ namespace ByteCoffee.Utility.Helpers
     public class UploadFileHelper
     {
         #region 上传文件并返回文件名
-
-        ///// <summary>
-        ///// 上传文件并返回文件名
-        ///// </summary>
-        ///// <param name="hifile">HtmlInputFile控件</param>
-        ///// <param name="strAbsolutePath">绝对路径.如:Server.MapPath(@"Image/upload")与Server.MapPath(@"Image/upload/")均可,用\符号亦可</param>
-        ///// <returns>返回的文件名即上传后的文件名</returns>
-        //public static string SaveFile(HttpPostedFileBase file, string strAbsolutePath)
-        //{
-        //    string strOldFilePath = "", strExtension = "", strNewFileName = "";
-        //    strOldFilePath = Path.GetFileName(file.FileName);
-        //    //取得上传文件的扩展名
-        //    strExtension = strOldFilePath.Substring(strOldFilePath.LastIndexOf(".")).ToLower();
-        //    //文件上传后的命名
-        //    strNewFileName = DateTime.Now.ToString("yyyyMMddhhmmss") + strExtension;
-        //    //如果路径末尾为\符号，则直接上传文件
-        //    var physicalPath = string.Empty;
-        //    if (strAbsolutePath.LastIndexOf("\\") == strAbsolutePath.Length)
-        //    { physicalPath = Path.Combine(strAbsolutePath, strNewFileName); }
-        //    else
-        //    { physicalPath = strAbsolutePath + "\\" + strNewFileName; }
-        //    file.SaveAs(physicalPath);
-        //    return strNewFileName;
-        //}
-
+        
         /// <summary>
         /// Saves the file.
         /// </summary>

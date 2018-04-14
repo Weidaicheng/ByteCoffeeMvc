@@ -114,7 +114,7 @@
     <Compile Include="Helpers\SqlHelper.cs" />
     <Compile Include="Drawing\ThumbnailHelper.cs" />
     <Compile Include="Helpers\TxtFileHelper.cs" />
-    <Compile Include="Helpers\UploadFileHelper.cs" />
+    <Compile Include="Web\UploadFileHelper.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="IO\DirectoryHelper.cs" />
     <Compile Include="IO\FileHelper.cs" />
