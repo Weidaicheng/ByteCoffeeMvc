@@ -34,7 +34,7 @@ namespace ByteCoffee.Utility.Configs
         /// <summary>
         /// 记录管理端登录验证码的Cookie Name
         /// </summary>
-        public const string VCodeCookieName = "te-lvc";
+        public const string AdminLoginAuthCodeSessionName = "BC_ADMIN_LOGIN_AUTH_CODE";
 
         /// <summary>
         /// 记录会员注册验证码变量名
