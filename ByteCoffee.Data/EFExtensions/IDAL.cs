@@ -22,7 +22,7 @@ namespace ByteCoffee.Data
         /// <value>
         /// The entities.
         /// </value>
-        IQueryable<TEntity> Entities { get; }
+        IQueryable<TEntity> ReadEntities { get; }
 
         /// <summary>
         /// 获取 当前实体的数据集

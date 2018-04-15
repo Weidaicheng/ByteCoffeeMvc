@@ -32,7 +32,7 @@ namespace ByteCoffee.Data
             private set { this._dao = value; }
         }
 
-        public IQueryable<TEntity> Entities
+        public IQueryable<TEntity> ReadEntities
         {
             get { return Db.Set<TEntity>().AsNoTracking(); }
         }
