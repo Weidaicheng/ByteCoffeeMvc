@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ByteCoffee.Data
 {
     public interface IDAL<TEntity>
-        where TEntity : class ,new()
+        where TEntity : class, new()
     {
         #region 属性
 
@@ -41,6 +42,8 @@ namespace ByteCoffee.Data
         /// </summary>
         /// <param name="dao">The unit of work.</param>
         void SetDbContext(IDAO dao);
+
+        #region 同步
 
         /// <summary>
         /// 根据主键得到实体
@@ -117,6 +120,87 @@ namespace ByteCoffee.Data
         /// <param name="items">The items.</param>
         /// <returns></returns>
         int Update(IEnumerable<TEntity> items);
+        #endregion
+
+        #region 异步
+
+        /// <summary>
+        /// 根据主键得到实体
+        /// </summary>
+        /// <param name="ids">The ids.</param>
+        /// <returns></returns>
+        Task<TEntity> FindAsync(params object[] ids);
+
+        /// <summary>
+        /// 添加实体并提交到数据服务器
+        /// </summary>
+        /// <param name="item">Item to add to repository</param>
+        /// <returns></returns>
+        Task<int> InsertAsync(TEntity item);
+
+        /// <summary>
+        /// 批量插入实体记录集合
+        /// </summary>
+        /// <param name="items">实体记录集合</param>
+        /// <returns>
+        /// 操作影响的行数
+        /// </returns>
+        Task<int> InsertAsync(IEnumerable<TEntity> items);
+
+        /// <summary>
+        /// 批量插入数据
+        /// </summary>
+        /// <param name="items">实体记录集合</param>
+        /// <returns></returns>
+        Task<int> AddRangeAsync(IEnumerable<TEntity> items);
+
+        /// <summary>
+        /// 移除实体并提交到数据服务器
+        /// 如果表存在约束，需要先删除子表信息
+        /// </summary>
+        /// <param name="item">Item to delete</param>
+        /// <returns></returns>
+        Task<int> DeleteAsync(TEntity item);
+
+        /// <summary>
+        /// 移除实体并提交到数据服务器
+        /// 如果表存在约束，需要先删除子表信息
+        /// </summary>
+        /// <param name="Ids">The ids.</param>
+        /// <returns></returns>
+        Task<int> DeleteAsync(params object[] Ids);
+
+        /// <summary>
+        /// 删除实体记录集合
+        /// </summary>
+        /// <param name="items">实体记录集合</param>
+        /// <returns>
+        /// 操作影响的行数
+        /// </returns>
+        Task<int> DeleteAsync(IEnumerable<TEntity> items);
+
+        /// <summary>
+        /// 批量删除数据
+        /// </summary>
+        /// <param name="items">实体记录集合</param>
+        /// <returns></returns>
+        Task<int> RemoveRangeAsync(IEnumerable<TEntity> items);
+
+        /// <summary>
+        /// 修改实体并提交到数据服务器
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns></returns>
+        Task<int> UpdateAsync(TEntity item);
+
+        /// <summary>
+        /// 修改实体并提交到数据服务器
+        /// </summary>
+        /// <param name="items">The items.</param>
+        /// <returns></returns>
+        Task<int> UpdateAsync(IEnumerable<TEntity> items);
+
+        #endregion
 
         #endregion
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace ByteCoffee.Data
 {
@@ -74,6 +75,12 @@ namespace ByteCoffee.Data
         /// </summary>
         /// <returns>操作影响的行数</returns>
         int SaveChanges();
+        
+        /// <summary>
+        /// 提交当前单元操作的更改。
+        /// </summary>
+        /// <returns>操作影响的行数</returns>
+        Task<int> SaveChangesAsync();
 
         #endregion
     }
