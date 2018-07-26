@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using ByteCoffee.Utility.Exceptions;
 using ByteCoffee.Utility.Extensions;
 
@@ -165,6 +166,53 @@ namespace ByteCoffee.Data
                     throw new System.Data.DataException(message, ex);
                 }
                 return count;
+            }
+            catch (DbUpdateException e)
+            {
+                if (e.InnerException != null && e.InnerException.InnerException is SqlException)
+                {
+                    SqlException sqlEx = e.InnerException.InnerException as SqlException;
+                    string msg = DataHelper.GetSqlExceptionMessage(sqlEx.Number);
+                    throw new BaseException("提交数据更新时发生异常：" + msg, sqlEx);
+                }
+                throw;
+            }
+            finally
+            {
+                if (isReturn)
+                { Configuration.ValidateOnSaveEnabled = !validateOnSaveEnabled; }
+            }
+        }
+
+        /// <summary>
+        /// Saves the changes asynchronous.
+        /// </summary>
+        /// <param name="validateOnSaveEnabled">if set to <c>true</c> [validate on save enabled].</param>
+        /// <returns></returns>
+        /// <exception cref="System.Data.DataException"></exception>
+        /// <exception cref="BaseException">提交数据更新时发生异常：" + msg</exception>
+        internal virtual async Task<int> SaveChangesAsync(bool validateOnSaveEnabled)
+        {
+            bool isReturn = Configuration.ValidateOnSaveEnabled != validateOnSaveEnabled;
+            var task = base.SaveChangesAsync();
+            try
+            {
+                Configuration.ValidateOnSaveEnabled = validateOnSaveEnabled;
+
+                try
+                {
+                    int count = await task;
+                    return count;
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    IEnumerable<DbEntityValidationResult> errorResults = ex.EntityValidationErrors;
+                    List<string> ls = (from result in errorResults
+                                       let lines = result.ValidationErrors.Select(error => "{0}: {1}".FormatWith(error.PropertyName, error.ErrorMessage)).ToArray()
+                                       select "{0}({1})".FormatWith(result.Entry.Entity.GetType().FullName, lines.ExpandAndToString(", "))).ToList();
+                    string message = "数据验证引发异常——" + ls.ExpandAndToString(" | ");
+                    throw new System.Data.DataException(message, ex);
+                }
             }
             catch (DbUpdateException e)
             {
